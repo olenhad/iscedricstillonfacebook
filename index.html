@@ -40,10 +40,9 @@
 
 		request.onload = function() {
 		  if (request.status >= 200 && request.status < 400){
-			var data = JSON.parse(request.responseText);
-			element.innerHTML = 'YES';
+			element.innerHTML = 'YES.';
 		  } else {
-			element.innerHTML = 'NO';
+			element.innerHTML = 'NO.';
 		  }
 		};
 
