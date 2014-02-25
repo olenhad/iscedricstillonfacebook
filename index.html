@@ -27,7 +27,27 @@
 	</head>
 	<body>
 		<div class="main">
-			<h1>Yes.</h1>
+			<h1 id='ced'>Hmm...</h1>
 		</div>
 	</body>
+	<script type="text/javascript">
+		var selector = '#ced';
+		var element = document.querySelectorAll(selector)[0];
+		console.log(element);
+		var userId = 'cedric.chin.92';
+		var request = new XMLHttpRequest();
+		request.open('GET','http://graph.facebook.com/' + userId, true);
+
+
+		request.onload = function() {
+		  if (request.status >= 200 && request.status < 400){
+			var data = JSON.parse(request.responseText);
+			element.innerHTML = 'YES';
+		  } else {
+			element.innerHTML = 'NO';
+		  }
+		};
+
+		request.send();
+	</script>
 </html>
