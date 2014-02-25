@@ -1,33 +1,52 @@
 <html>
-    <head>
-        <title>Is Cedric Still On Facebook?</title>
+	<head>
+		<title>Is Cedric Still On Facebook?</title>
 		<style>
 		body {
-		    padding-top: 45px;
-		    font-family: 'Open Sans', sans-serif;
-		    font-weight: 100;
-		    font-size: 19px;
-		    line-height: 27px;
-		    color: rgb(41, 41, 41);
-		    text-align: center;
+			padding-top: 45px;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 100;
+			font-size: 19px;
+			line-height: 27px;
+			color: rgb(41, 41, 41);
+			text-align: center;
 		}
 
 		#main {
-		    margin: 0px;
+			margin: 0px;
 		}
 
 		h1 {
-		    font-size: 76px;
-		    font-family: 'ChunkFiveRegular','Open Sans',sans-serif;
-		    line-height: 81px;
-		    letter-spacing: 1px;
+			font-size: 76px;
+			font-family: 'ChunkFiveRegular','Open Sans',sans-serif;
+			line-height: 81px;
+			letter-spacing: 1px;
 		}
 		</style>
-        <link rel="stylesheet" type="text/css" href="screen.css">
-    </head>
-    <body>
-        <div class="main">
-            <h1>Yes.</h1>
-        </div>
-    </body>
+		<link rel="stylesheet" type="text/css" href="screen.css">
+	</head>
+	<body>
+		<div class="main">
+			<h1 id='ced'>Hmm...</h1>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var selector = '#ced';
+		var element = document.querySelectorAll(selector)[0];
+		var userId = 'cedric.chin.92';
+		var request = new XMLHttpRequest();
+		request.open('GET','http://graph.facebook.com/' + userId, true);
+
+
+		request.onload = function() {
+		  if (request.status >= 200 && request.status < 400){
+			var data = JSON.parse(request.responseText);
+			element.innerHTML = 'YES';
+		  } else {
+			element.innerHTML = 'NO';
+		  }
+		};
+
+		request.send();
+	</script>
 </html>
